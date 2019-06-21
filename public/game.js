@@ -7,6 +7,7 @@ $(function () {
 	var userFormArea = $('#user-form-area');
 	var users = $('#users');
 	var username = $('#username');
+	var loginButton = $('#login-submit');
 	/********* GAME AREA AND CHOICES AREA *****************************/
 	var gameArea = $('#game-area');
 	var game = $('#game');
@@ -83,6 +84,7 @@ $(function () {
 		$('input[type=radio]').prop('checked', function () {
 			return this.getAttribute('checked') == 'false';
 		});
+		//REMOVE THE CLASS STYLING FOR REVEALING THE WINNER OF THE BET
 		resultBg.removeClass('winner-hightlight-bg');
 		resultText.removeClass('winner-hightlight-text');
 		resultText.html('Pick Now');
@@ -92,7 +94,7 @@ $(function () {
 		hideMysteryPrize();
 		game.show();
 	})
-
+	//ORIGINALLY THE REVEALING OF MYSTERY PRIZE IS THROUGH BUTTON BUT I'M HAVING HARD TIME TO HIDE IT TO OTHER USE WHO LOSE THE GAME, I WILL STILL WORK ON THIS ONE
 	//	prize.click(function () {
 	//		prizeRevealCont.show();
 	//		prize.hide();
@@ -109,26 +111,27 @@ $(function () {
 	});
 
 	//=================== SOCKETS LISTENERS ========================
-
+	//WHEN THE USER IS CONNECTED THE NAME WILL BE ADDED TO THE LIST
 	socket.on('connected', function (username) {
 		gameStats.append(username + ' joined the game' + '<br>');
 	});
-
+	//WHEN THE USER DISCONNECTED THE NAME WILL BE REMOVED ON CONNECTED USERS AND ADDED TO DISCONNECTED USERS CONTAINER
 	socket.on('disconnected', function (username) {
 		gameStats.append(username + ' left the game' + '<br>');
 		usersDconnected.append(username + '<br>');
 	});
-
-	socket.on('restrict 2 players', function () {
-		warning.html('Your late! two players already playing');
-	});
-
+	//WHEN USER FIRST CONNECT IF THERE'S ONLY ONE YOU NEED TO WAIT FOR ANOTHER USER TO PLAY THE FAME
 	socket.on('need another player', function () {
 		warning.html('You will be the first player, Just wait for another player to start the game');
 	});
-
+	//WHEN IT DETECTS THAT THERE'S TWO CONNECTED USERS ALREADY THE GAME WILL START
 	socket.on('two players', function () {
 		warning.html('Hurry up! Get in now, to start the game');
+	});
+	//IF THERE'S MORE THAN TWO PLAYERS OR SOCKETS CONNECTED THEY WILL BE DISCONNECTED AND CAN'T PALY THE GAME 
+	socket.on('restrict 2 players', function () {
+		warning.html('Your late! two players already playing');
+		socket.disconnect();
 	});
 
 	socket.on('get user', function (data) {
@@ -140,12 +143,11 @@ $(function () {
 			play2.html(data[1]);
 		}
 		//DISPLAY THE NUMBER OF CONNECTED USERS
-
 		countConUsers.html('( ' + data.length + ' )' + ' Connected Users');
 		usersConnected.html(userList);
 		//		warning.html('( ' + data.length + ' )' + ' Connected Users');
 	});
-
+	//WHEN TWO USERS ARE ALREADY CONNECTED THE GAME WILL START
 	socket.on('game start', function () {
 		game.show();
 		prizeCont.hide();
@@ -154,7 +156,9 @@ $(function () {
 		resultText.html('You Bet!');
 		resultWinLose.html("Where's Bet?");
 	});
-
+	/********* WINNING CONDITIONS OF THE BET GAME *****************************/
+	
+	//WHEN PLAYERS HAD A TIE GAME
 	socket.on('tie', function (choices) {
 		countdown(choices);
 
@@ -171,7 +175,7 @@ $(function () {
 		}, 5000);
 		submitted = false;
 	});
-
+	//CONDITION IF PLAYER 1 WINS
 	socket.on('player 1 win', function (choices) {
 		countdown(choices);
 
@@ -186,7 +190,7 @@ $(function () {
 		}, 5000);
 		submitted = false;
 	});
-
+	//CONDITION IF PLAYER 2 WINS
 	socket.on('player 2 win', function (choices) {
 		countdown(choices);
 
@@ -201,7 +205,7 @@ $(function () {
 		}, 5000);
 		submitted = false;
 	});
-
+	// THIS CODE IS SUPPOSED TO BE SHOWING THE MYSTERY PRIZE BUT ITS NOT FULLY IMPLEMENTED CAUSE I WANT TO HIDE THIS TO THE PLAYER WHO LOSE THE GAME
 	socket.on('mystery prize', function () {
 		prizeCont.show();
 		prizeText.html(mysteryPrize);
@@ -245,12 +249,12 @@ $(function () {
 		resetCont.hide();
 		quitCont.hide();
 	}
-
+	//FUNCTION THAT WILL SHOW THE MYSTERY PRIZE
 	function getMysteryPrize() {
 		prizeRevealCont.show();
 		prizeText.html(mysteryPrize);
 	}
-
+	//FUNTION THAT WILL HIDE THE MYSTERY PRIZE
 	function hideMysteryPrize() {
 		prizeRevealCont.hide();
 	}

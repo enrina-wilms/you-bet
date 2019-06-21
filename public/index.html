@@ -17,12 +17,46 @@
 		<!--USER NAME FORM: USERS NEED TO ENTER THEIR NAME TO PLAY THE GAME-->
 		<form id="user-form">
 			<h1 id="heading">You Bet!</h1>
-			<span id="warning"></span>
+			<div id="warning-container">
+				<span id="warning"></span>
+			</div>
+			<br>
+			<!--SCRIPT FOR TOGGLE GAME MECHANICS-->
+			<script>
+				$(document).ready(function() {
+					$('.game-mecahnics-text').hide();
+					$('#game-mechanics-button').click(function() {
+						$('.game-mecahnics-text').toggle();
+					});
+				});
+			</script>
+			<!--GAME MECHANICS AND GUIDELINES-->
+			<div id="game-mechanics-button">Click here and please read the game guidelines</div>
+			<div id="game-mechanics">
+				<ul class="game-mecahnics-text">
+					<li class="game-mecahnics-text">
+						You Bet! is a two player game. Users needs to enter their name to start the game. If there's more than two players connected, only first two users can play and the other users will be disconnected.
+					</li>
+					<li class="game-mecahnics-text">
+						Once the game start user need to pick their bet, it's either 10, 50 or 100. If both players picked their bet, the winner will be revealed within 5 seconds
+					</li>
+					<li class="game-mecahnics-text">
+						When the winner is revealed "Play again", "Quit game" buttons will appear and user can chose whether to play it again or quit the game.
+					</li>
+					<li class="game-mecahnics-text">
+						At the end of the game, once the winner is revealed, A random mystery pirze will also be displayed and revealed.
+					</li>
+					<li class="game-mecahnics-text">
+						When you quit the game and re-enter, Please refresh the page first before typing your name again to paly the game.
+					</li>
+				</ul>
+			</div>
+			<br>
 			<div class="form-container">
 				<div class="user-input">
 					<label class="label-form" for="username">Enter your Name</label>
 					<div class="input-form">
-						<input type="text" id="username" placeholder="Please enter your name . . ." />
+						<input type="text" id="username" placeholder="Please enter your name at least 4 characters" />
 					</div>
 				</div>
 				<div>

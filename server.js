@@ -48,7 +48,7 @@ io.sockets.on('connection', function (socket) {
 	//WHEN THERE'S MORE THAN 2 CONNECTIONS USER WILL BE DISCONNECTED AND CAN'T ENTER THE GAME
 	if (connections.length > 2) {
 		io.emit('restrict 2 players');
-		io.disconnect();
+//		io.disconnect();
 	}
 
 	socket.on('add user', function (data, callback) {
