@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="/style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+	<script src="https://kit.fontawesome.com/906c22930b.js"></script>
+	<title>You Bet!</title>
+</head>
+
+<body>
+	<div class="flex-container" id="user-form-area">
+		<!--USER NAME FORM: USERS NEED TO ENTER THEIR NAME TO PLAY THE GAME-->
+		<form id="user-form">
+			<h1 id="heading">You Bet!</h1>
+			<span id="warning"></span>
+			<div class="form-container">
+				<div class="user-input">
+					<label class="label-form" for="username">Enter your Name</label>
+					<div class="input-form">
+						<input type="text" id="username" placeholder="Please enter your name . . ." />
+					</div>
+				</div>
+				<div>
+					<input id="login-submit" type="submit" class="login-submit" value="Login" />
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="flex-container" id="game-area">
+		<h1 id="heading-game">You Bet!</h1>
+		<div class="flex-result">
+			<!--SECTION FOR USER NAME AND GAME STATUS WHEN FORM IS SUBMITTED-->
+			<div id="result-game-container">
+				<!--PLAYER 1 NAME AND PICK-->
+				<div id="game-status-player1" class="result-div">
+					<span id="play1">player1</span>
+					<span id="result-play1" class="results-text"></span>
+				</div>
+				<!--RESULTS CONTAINER AFTER FORM SUBMITTER-->
+				<div id="game-status-texts" class="result-div">
+					<span id="">Results</span>
+					<span id="result-win-lose" class="results-text"></span>
+				</div>
+				<!--PLAYER 2 NAME AND PICK-->
+				<div id="game-status-player2" class="result-div">
+					<span id="play2">player2</span>
+					<span id="result-play2" class="results-text"></span>
+				</div>
+			</div>
+		</div>
+		<!--BET CHOICES CONTAINER-->
+		<div class="container">
+			<!--ten fifty hundred ICONS TO CHOOSE FOR THE GAME-->
+			<form class="sectionArea" id="game">
+				<h2>Pick your Bet!</h2>
+				<br>
+				<!--ten CHOICE-->
+				<div class="choice-div">
+					<input class="form-check-input" id="ten" type="radio" name="choice" value="10" checked />
+					<label class="form-check-label" for="ten">
+						<div class="choice-circle">
+							<span class="choice-icon">10</span>
+						</div>
+					</label>
+				</div>
+				<!--fifty CHOICE-->
+				<div class="choice-div">
+					<input class="form-check-input" id="fifty" type="radio" name="choice" value="50" />
+					<label class="form-check-label" for="fifty">
+						<div class="choice-circle">
+							<span class="choice-icon">50</span>
+						</div>
+					</label>
+				</div>
+				<!--hundred CHOICE-->
+				<div class="choice-div">
+					<input class="form-check-input" id="hundred" type="radio" name="choice" value="100" />
+					<label class="form-check-label" for="hundred">
+						<div class="choice-circle">
+							<span class="choice-icon">100</span>
+						</div>
+					</label>
+				</div>
+				<!--SUBMIT BUTTON FOR CHOICE-->
+				<div class="choice-submit-container">
+					<input type="submit" class="choice-submit" value="Submit" />
+				</div>
+			</form>
+			<!--PRIZE REVEAL CONTAINER-->
+			<div id="choice-prize-reveal-container">
+				<span id="prize-reveal-text"></span>
+			</div>
+
+			<!--PRIZE BUTTON TO REVEAL THE MYSTERY PRIZE AT THE END FO THE GAME-->
+			<div id="choice-prize-container">
+				<input id="prize" type="submit" class="choice-submit" value="View your Mystery Prize" />
+			</div>
+			<!--RESET BUTTON TO PLAY AGAIN-->
+			<div id="choice-reset-container">
+				<input id="reset" type="submit" class="choice-submit" value="Play Again" />
+			</div>
+			<!--QUIT/DISCONNECT BUTTON TO PLAY AGAIN-->
+			<div id="choice-quit-container">
+				<input id="quit" type="submit" class="choice-submit" value="Quit Game" />
+			</div>
+		</div>
+		<!--GAME LOGS AND RESULTS SECTION-->
+		<div class="flex-result">
+			<!--SECTION FOR USER NAME AND GAME STATUS WHEN FORM IS SUBMITTED-->
+			<div id="result-game-container">
+				<!--PLAYER 1 NAME AND PICK-->
+				<div id="game-status-player1" class="log-div">
+					<h4 id="count-con-users">Users Connected</h4>
+					<div class="log-list">
+						<ul id="users-con" class="text-info"></ul>
+					</div>
+				</div>
+				<!--RESULTS CONTAINER AFTER FORM SUBMITTER-->
+				<div id="game-status-texts" class="log-div">
+					<h4 id="count-discon-users">Users Disconnected</h4>
+					<div class="log-list">
+						<p id="users-dcon" class="text-info"></p>
+					</div>
+				</div>
+				<!--PLAYER 2 NAME AND PICK-->
+				<div id="game-status-player2" class="log-div">
+					<h4>Game Status</h4>
+					<div class="log-list">
+						<p id="game-stats" class="text-info"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--SCRIPT FOR THE GAME-->
+	<script src="prize.js"></script>
+	<script src="game.js"></script>
+</body>
+
+</html>

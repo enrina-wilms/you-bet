@@ -1,0 +1,342 @@
+html {
+	box-sizing: border-box;
+	font-family: 'Love Ya Like A Sister', cursive;
+	color: #fff;
+	text-align: center;
+	text-transform: capitalize;
+}
+
+* {
+	margin: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	background: #1e272e;
+	/*	height: 100vh;*/
+}
+
+input[type=submit] {
+	border-radius: 50px;
+}
+
+.flex-container {
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+#game-area{
+	display: none;
+}
+#choice-prize-reveal-container {
+	display: none;
+}
+
+/*LOGIN FORM STYLE*/
+#heading {
+	color: #ffd32a;
+	font-size: 100px;
+	font-family: 'Cabin Sketch', cursive;
+	font-weight: bold;
+}
+
+.label-form {
+	color: #d2dae2;
+	font-size: 40px;
+	font-family: 'Love Ya Like A Sister', cursive;
+	font-weight: bold;
+}
+
+.userInput {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#user-form {
+	width: 60%;
+}
+
+input[type=text] {
+	width: 100%;
+	border: none;
+	padding: 15px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	background: none;
+	border-bottom: 2px solid #34e7e4;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+
+::placeholder {
+	color: #d2dae2;
+	font-style: italic;
+	font-size: 20px;
+	text-align: center
+}
+
+.login-submit {
+	background-color: #34e7e4;
+	border: none;
+	color: #1e272e;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 15px 30px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	width: 100%;
+	font-family: 'Love Ya Like A Sister', cursive;
+}
+
+.login-submit:hover {
+	background-color: #ffd32a;
+	border: none;
+	color: #1e272e;
+}
+
+#warning {
+	font-size: 30px;
+	color: #ff3f34;
+}
+
+/*GAME CHOICE STYLE*/
+.form-container {
+	margin: 0 auto !important;
+	width: 60%;
+}
+
+.form-check-label {
+	cursor: pointer;
+}
+
+.form-check-input {
+	visibility: hidden;
+}
+
+.choice-div {
+	display: inline-block;
+}
+
+.choice-submit-container {
+	margin-top: 20px;
+}
+
+.choice-circle {
+	margin: 0 auto;
+	/*	float: left;*/
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background-color: #ffd32a;
+	text-align: center;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+.choice-icon {
+	position: relative;
+	top: 20px;
+	font-size: 50px;
+	line-height: 55px;
+	color: #1e272e;
+	text-transform: lowercase;
+	font-weight: bold;
+}
+
+.choice-circle:hover {
+	background-color: #ff3f34;
+	border: 5px solid #fff;
+}
+
+.choice-icon:hover {
+	color: #fff;
+}
+
+.choice-circle:active {
+	background-color: #ff3f34;
+	border: 5px solid #fff;
+}
+
+.choice-circle:active {
+	color: #fff;
+}
+
+.choice-submit {
+	text-align: center;
+	margin: 0 auto;
+	background-color: #34e7e4;
+	border: none;
+	color: #1e272e;
+	font-size: 25px;
+	font-weight: bold;
+	padding: 8px 25px;
+	text-decoration: none;
+	margin: 10px 2px;
+	cursor: pointer;
+	font-family: 'Love Ya Like A Sister', cursive;
+}
+
+.choice-submit:hover {
+	background-color: #ff3f34;
+	color: #fff;
+}
+
+/*
+
+.choice-submit {
+	display: block;
+	margin: 0 auto !important;
+}
+*/
+
+.choice-submit-container {
+	margin-top: 20px;
+}
+
+#choice-reset-container,
+#choice-quit-container {
+	display: inline-block;
+}
+
+#heading-game {
+	font-size: 30px;
+	color: #ffd32a;
+	font-size: 70px;
+	font-family: 'Cabin Sketch', cursive;
+	font-weight: bold;
+	text-align: center;
+}
+
+.container {
+	margin: 0 auto;
+	width: 70%;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.result-div {
+	width: 400px;
+	height: 200px;
+	margin: 20px;
+	padding: 10px 25px;
+	display: inline-block;
+	font-size: 35px;
+	color: white;
+	/*	background: #485460;*/
+	font-family: 'Cabin Sketch', cursive;
+	text-align: center;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 6px 16px -3px rgba(0, 0, 0, 1);
+	-moz-box-shadow: 0px 6px 16px -3px rgba(0, 0, 0, 1);
+	box-shadow: 0px 6px 16px -3px rgba(0, 0, 0, 1);
+
+}
+
+.log-list {
+	height: 80px;
+	font-size: 20px;
+	color: #1e272e;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin-bottom: 15px;
+	font-family: 'Love Ya Like A Sister', cursive;
+	scrollbar-width: thin;
+	scrollbar-color: dark;
+}
+
+.flex-result {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.results-text {
+	display: block;
+	color: #ffd32a;
+}
+#prize-reveal-text{
+	font-size: 40px;
+	color: #ffd32a;
+	padding-bottom: 20px;
+}
+.log-div {
+	/*	width: 400px;*/
+	height: 140px;
+	margin: 20px;
+	padding: 10px 25px;
+	display: inline-block;
+	font-size: 30px;
+	color: #fff;
+	/*	background: #2C3A47;*/
+	font-family: 'Cabin Sketch', cursive;
+	text-align: center;
+	padding-bottom: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 6px 16px -3px rgba(0, 0, 0, 1);
+	-moz-box-shadow: 0px 6px 16px -3px rgba(0, 0, 0, 1);
+	box-shadow: 0px 6px 16px -3px rgba(0, 0, 0, 1);
+
+}
+
+.text-info {
+	padding-right: 10px;
+	color: #ff3f34;
+	font-size: 20px;
+}
+
+/*GAME STATUS STYLINGS ADD CLASS*/
+.winner-hightlight-bg {
+	background-color: #ff3f34;
+	color: #fff;
+}
+
+.winner-hightlight-text {
+	color: #1e272e;
+}
+
+.reset-result-bg {
+	background: #485460;
+	color: #fff;
+}
+
+.reset-result-text {
+	color: #ffd32a;
+}
+
+/*SCROLLBAR STYLING FRO CHROME ONLY WORKS*/
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::--moz--scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: #1E272E;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #1E272E;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #1E272E;
+}
