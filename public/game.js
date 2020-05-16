@@ -172,7 +172,7 @@ $(function () {
 			game.hide();
 			actionButtonShow();
 			getMysteryPrize();
-		}, 5000);
+		}, 2500);
 		submitted = false;
 	});
 	//CONDITION IF PLAYER 1 WINS
@@ -187,7 +187,7 @@ $(function () {
 			game.hide();
 			actionButtonShow();
 			getMysteryPrize();
-		}, 5000);
+		}, 2500);
 		submitted = false;
 	});
 	//CONDITION IF PLAYER 2 WINS
@@ -202,7 +202,7 @@ $(function () {
 			game.hide();
 			actionButtonShow();
 			getMysteryPrize();
-		}, 5000);
+		}, 2500);
 		submitted = false;
 	});
 	// THIS CODE IS SUPPOSED TO BE SHOWING THE MYSTERY PRIZE BUT ITS NOT FULLY IMPLEMENTED CAUSE I WANT TO HIDE THIS TO THE PLAYER WHO LOSE THE GAME
@@ -221,22 +221,22 @@ $(function () {
 		setTimeout(function () {
 			resultText.html('$$$');
 			resultWinLose.html(choices[1]['user'] + ' is set!');
-		}, 1000);
+		}, 500);
 		setTimeout(function () {
 			resultWinLose.html('Who wins?');
-		}, 2000);
+		}, 1000);
 		setTimeout(function () {
 			//PLAYER 1 BET WILL BE REVEAL
 			gameStats.html(choices[0]['user'] + ' bet ' + choices[0]['choice'] + '.');
 			//resultPlay1.html(choices[0]['choice']);
 			resultPlay1.html('<div class="choice-circle">' + '<span class="choice-icon">' + choices[0]['choice'] + '</span>' + '</div>');
-		}, 3000);
+		}, 1500);
 		setTimeout(function () {
 			//PLAYER 2 BET WILL BE REVEAL
 			gameStats.append('<br>' + choices[1]['user'] + ' bet ' + choices[1]['choice'] + '.');
 			//			resultPlay2.html(choices[1]['choice']);
 			resultPlay2.html('<div class="choice-circle">' + '<span class="choice-icon">' + choices[1]['choice'] + '</span>' + '</div>');
-		}, 4000);
+		}, 2000);
 	}
 	//SHOW "PLAY AGAIN"  AND "QUIT" BUTTON AT THE END OF THE GAME
 	function actionButtonShow() {

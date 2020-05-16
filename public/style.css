@@ -4,6 +4,7 @@ html {
 	color: #fff;
 	text-align: center;
 	text-transform: capitalize;
+	letter-spacing: 1px;
 }
 
 * {
@@ -24,19 +25,19 @@ input[type=submit] {
 	border-radius: 50px;
 }
 
-.flex-container {
+.flex-container, #game-area {
 	height: 100vh;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
+	flex-direction: column;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	align-content: center;
+	/* align-content: center; */
 }
 
-#game-area {
+/* #game-area {
 	display: none;
-}
+} */
 
 #choice-prize-reveal-container {
 	display: none;
@@ -256,11 +257,16 @@ input[type=text] {
 }
 
 .result-div {
+	flex-grow: 1;
 	width: 300px;
 	height: 200px;
 	margin: 20px;
 	padding: 10px 25px;
-	display: inline-block;
+	/* display: flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	justify-items: center; */
 	font-size: 35px;
 	color: white;
 	font-family: 'Cabin Sketch', cursive;
@@ -284,14 +290,14 @@ input[type=text] {
 	scrollbar-color: dark;
 }
 
-.flex-result {
+/* .flex-result {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: stretch;
 	align-content: stretch;
-}
+} */
 
 .results-text {
 	display: block;
@@ -365,4 +371,16 @@ input[type=text] {
 
 ::-webkit-scrollbar-thumb:hover {
 	background: #1E272E;
+}
+#result-game-container{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	align-content: center;
+}
+#game-status-texts{
+	align-content: center;
+}
+.results-text{
+	padding-top: 15px;
 }
